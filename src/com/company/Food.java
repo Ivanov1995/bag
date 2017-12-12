@@ -1,9 +1,11 @@
 package com.company;
 
-public class Food {
+public class Food implements Print {
     private String name;
     private int massa;
     private int cost;
+    private static final String GRAM = " грамм ";
+    private static final String RUB = " руб. ";
 
     Food(String name, int massa, int cost) {
         this.name = name;
@@ -15,23 +17,12 @@ public class Food {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getMassa() {
-        return massa;
-    }
-
-    public void setMassa(int massa) {
-        this.massa = massa;
-    }
-
     public int getCost() {
         return cost;
     }
 
-    public void setCost(int cost) {
-        this.cost = cost;
+    @Override
+    public void printInfo() {
+        System.out.println("*  " + name + " " + massa + GRAM + cost + RUB);
     }
 }

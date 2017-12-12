@@ -86,7 +86,7 @@
     </Food>
 
     <Food>
-        <name>Рис отварной с маслом </name>
+        <name>Рис отварной с маслом</name>
         <massa>170</massa>
         <cost>16</cost>
     </Food>
