@@ -21,7 +21,7 @@ public class ParsingOrders {
     private static final String PATH_FILE_MENU = "menu.xml";
 
 
-    public ArrayList<Food> menu(String file) {
+    private ArrayList<Food> parseMenu(String file) {
 
         ArrayList<Food> listMenu = new ArrayList<>();
 
@@ -53,13 +53,13 @@ public class ParsingOrders {
 
                         if (propertyFood.getNodeType() != Node.TEXT_NODE) {
 
-                            if (propertyFood.getNodeName() == NAME_NODE) {
+                            if (propertyFood.getNodeName().equals(NAME_NODE)) {
                                 name = propertyFood.getChildNodes().item(0).getTextContent().trim();
                             }
-                            if (propertyFood.getNodeName() == WEIGHT_NODE) {
+                            if (propertyFood.getNodeName().equals(WEIGHT_NODE)) {
                                 weight = propertyFood.getChildNodes().item(0).getTextContent().trim();
                             }
-                            if (propertyFood.getNodeName() == COST_NODE) {
+                            if (propertyFood.getNodeName().equals(COST_NODE)) {
                                 cost = propertyFood.getChildNodes().item(0).getTextContent().trim();
                                 Food itFood = new Food(name, Integer.parseInt(weight), Integer.parseInt(cost));
                                 listMenu.add(itFood);
@@ -79,10 +79,10 @@ public class ParsingOrders {
         return listMenu;
     }
 
-    public void orders(String file) {
+    public void parseOrders(String file) {
 
         ArrayList<Food> list = new ArrayList<>();
-        ArrayList<Food> listMenu = menu(PATH_FILE_MENU);
+        ArrayList<Food> listMenu = parseMenu(PATH_FILE_MENU);
 
         String name = "";
         String order = "";
@@ -110,7 +110,7 @@ public class ParsingOrders {
                         Node propertyEmployee = listOfNodesEmployee.item(j);
 
                         if (propertyEmployee.getNodeType() != Node.TEXT_NODE) {
-                            if (propertyEmployee.getNodeName() == NAME_NODE) {
+                            if (propertyEmployee.getNodeName().equals(NAME_NODE)) {
                                 name = propertyEmployee.getChildNodes().item(0).getTextContent().trim();
                             }
 
